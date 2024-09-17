@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BreezeTalk - Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden; 
+            overflow-y: scroll; 
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .light-theme {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .dark-theme {
+            background-color: #121212;
+            color: #f4f4f4;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.5s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+        }
+        .navbar.light-theme {
+            background-color: #333;
+        }
+        .navbar.dark-theme {
+            background-color: #444;
+        }
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #ff5722, #f44336); 
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(-45deg);
+            transition: transform 0.5s;
+            z-index: 0;
+        }
+        .navbar .logo:hover::before {
+            transform: rotate(-45deg) translateX(100%);
+        }
+        .navbar .logo span {
+            position: relative;
+            z-index: 1;
+        }
+        .navbar .nav-links {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px; 
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+        .navbar .theme-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: transform 0.3s, color 0.3s;
+            margin-right: 20px; 
+        }
+        .navbar .theme-toggle:hover {
+            color: #ff5722;
+            transform: rotate(360deg); 
+        }
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-color: #eee; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px; 
+            transition: background-color 0.5s;
+        }
+        .hero.light-theme {
+            background-color: #eee;
+        }
+        .hero.dark-theme {
+            background-color: #333;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+        .hero button {
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .hero button:hover {
+            background-color: #e64a19;
+        }
+        .parallax {
+            background-color: #ddd; 
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.5s;
+        }
+        .parallax.light-theme {
+            background-color: #ddd;
+        }
+        .parallax.dark-theme {
+            background-color: #555;
+        }
+        .parallax-content {
+            max-width: 800px;
+        }
+        .parallax-content h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .parallax-content p {
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .parallax-content h2 {
+                font-size: 2rem;
+            }
+            .parallax-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <div class="navbar">
+        <div class="logo"><span>BreezeTalk</span></div>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./features.html">Features</a>
+            <a href="./about.html">About</a>
+            <a href="./signup.html">Sign up</a>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+    <div class="hero">
+        <div>
+            <h1>Welcome to BreezeTalk</h1>
+            <p>Your gateway to effortless and engaging communication. BreezeTalk offers seamless, real-time chatting with friends and colleagues, wherever you are.</p>
+            <button onclick="window.location.href='signup.html'">Get Started</button>
+        </div>
+    </div>
+    <div class="parallax">
+        <div class="parallax-content">
+            <h2>Experience the Future of Communication</h2>
+            <p>Join us and connect with others effortlessly. Discover features designed to make chatting smooth and enjoyable.</p>
+        </div><br> <br> <br>
+
+    </div>
+    <center>
+        <div style="color: red; font-size: 22px;">WARNING </div>
+        BreezeTalk is still in development stage so there might be some errors and bugs that are to be fixed in the full version.
+    </center>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isLightTheme = body.classList.contains('light-theme');
+            body.classList.toggle('light-theme', !isLightTheme);
+            body.classList.toggle('dark-theme', isLightTheme);
+            const navbar = document.querySelector('.navbar');
+            const hero = document.querySelector('.hero');
+            const parallax = document.querySelector('.parallax');
+            navbar.classList.toggle('light-theme', !isLightTheme);
+            navbar.classList.toggle('dark-theme', isLightTheme);
+            hero.classList.toggle('light-theme', !isLightTheme);
+            hero.classList.toggle('dark-theme', isLightTheme);
+            parallax.classList.toggle('light-theme', !isLightTheme);
+            parallax.classList.toggle('dark-theme', isLightTheme);
+            const toggleButton = document.querySelector('.theme-toggle');
+            toggleButton.textContent = isLightTheme ? '🌙' : '☀️';
+        }
+    </script>
+</body>
+</html>
